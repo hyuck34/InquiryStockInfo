@@ -1,0 +1,353 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="투자자별거래실적조회" this:투자자별거래실적조회.in_codenumber="200130" this:투자자별거래실적조회.in_date="20230710" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_codenumber" Type="InArgument(x:String)" />
+    <x:Property Name="out_투자자별테이블" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="in_date" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>993,3634</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>외국인지분율조회_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="투자자별거래실적조회" sap:VirtualizedContainerService.HintSize="688,3569" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: 통계 - KRX | 정보데이터시스템" sap:VirtualizedContainerService.HintSize="626,3458" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="8a8117da-72da-4eed-8c47-d05450255391" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="592,3241" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="투자자별_테이블" />
+              <Variable x:TypeArguments="sd:DataTable" Name="투자자_데이터" />
+              <Variable x:TypeArguments="x:String" Name="종목명" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT jsMdiMenuSearchVa…'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,254" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="8a8117da-72da-4eed-8c47-d05450255391" Text="12009" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020203#" CvTextArgument="tI9#$/3190" CvType="Text" DesignTimeRectangle="378, 215, 180, 25" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT jsMdiMenuSearchVa…'" FullSelectorArgument="&lt;webctrl id='jsMdiMenuSearchValue' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='jsMdiMenuSearchValue' tag='INPUT' type='text' class='' aaname='' /&gt;" Guid="bb57bd92-54dd-40d3-9386-8e4ebad6274c" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALgAAAAdCAYAAAAZ4qaaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASdSURBVHhe7ZvLThRBFIbnDVy5IG5dsJU1Ji4IBhNj4iuwIFG3rN3ME/AAvAIbUbwEExcaAyw0khBMvGCiCRA3Aok4UvZfQ0/X5a+p6qbn6unkSzN16erq+vpMdU3TaDzaVoIwttBEQRgXaCLhyotdde3VJ3XjzRd1a2NP3RaEPgLn4B4chIvMUQpNNLi6/lHdfPuVNioIgwJOwk3mrAVNzLi0tqOuv/5MDy4IwwIchavMYQ1LvPxsR6YhwsgAV+Esc9kTHHeDyC2MGnCWRnI3QaYlwqCYf/ddPd7/pfZ/t9SfszO9x2eks/IucNf12RIck3ZWsQzTCw01ueykLy+qxsKKnbaxoiYbjewEHDrlkL+opq06W2pqxklbXVITM0tqVn9mdVxSygSw2srBOc2pqVUzbU/NNuf8vjWKcsifaG6VqoPr6NZxwfV3j2HWoeOjya6L1beiX+xc6+bh7r46aZ0ptiEd+ayei/fgaX6oY7WknOCOaChnDU4NgiPfOiaDC+oNaknB7fooZ7frHr9KnRg4pjkewyj4/Pvv6rj1V8v88vBYPfjwQ93d/Kb3+IwNkqMcq28Ch02nO4JjbZFViOMPgom+MGUE73kET6MjgnfTmaCtQgSzPpe1KMekidXBuZQTzb9eQcF1IDD7UbTda8HXsmkINsjM8nPJMV1h+S7WOnn+BxbQWeFaqFVwJppJQPCAqMFolnyjOBKeMwyC58fDPtbn6YWsnaZ5/e1rXabdshxkc21s97KIzfIRybFhTs7yXeCyJzh+JWKFk/EEMgQpI3joGBpcdCctJYLT9kF7EL0B98rbgw2KAXckPIfLGjpG9TohtNSkzyyCIy0/bvF30S//vOoFD5TYMC1h+UjHhnIs3wUue4JfaGmQzU0hSZ5miFtcKMhoD56mMyihCN57wd0B9aUw65kSFm1rwdy+9eEhs3M+tL9+X3Sb5GaeXMa+P4LHIjjSsaVGcLjsCc4KJpMieOCChwkJ7gqQERMcGDeZiSt3uw07IscFt8unUEmamOC6j+XPZdCkzsFRjuUzPMEv/OOOJ5AhWm2Cx0ipEyuTdmMVovVCcJyD3V4pcfUDo1u/wL+pQ98eBb2M4FgdyZcIIfP9LGJjWoJ9LnfqKgqgEfzCc/Bz/GiX0UXw8EB3ETEYyWoQvNvNyL6pugoebivYby0nO15beianBz3PNnR8IlT6tilJbB3852kri+BH6s4mr29C5+CVV1G8yO2SDXAlwbsQFNwhEsls2lLZAviR22WiuVJJ8CDd+lam3yMmOMAvlk+yaQjm5HigxB6fkf784EjLjn1McrqKUn0dPIFBCV6aKtONahE8yH8awWNA6vXDtuRPM8lZmRy6Dg569t53RHAWGXPoYOB4pGxOfwcjJjg/R01AQl6vxI0X+eYaRcEBJEcE3zs5pfkg+EsmqONdFEEYJF3fRQHyNqEwqkTfJgTyPrgwisDZpPfBgfxHjzBKwNXk/+jJwd0g0xVh2IGjNHLn0EQDTNp7troiCBWBk94DJYMmErC2iAV0/Eok0xeh38A5uAcHrXXuGDRREMYFmigIY8G2+gc6h9vaqVt9PQAAAABJRU5ErkJggg==" InformativeScreenshot="d553e9d6b7c48e5b0e4c7731246f4ded.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='KRX_MDC' title='통계 - KRX | 정보데이터시스템' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArgument="KRX YYG|0|EA|^e" CvType="Text" DesignTimeRectangle="58, 117, 194, 50" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl aaname='정보데이터시스템' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='정보데이터시스템' tag='IMG' type='' class='' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '서비스 소개'" sap:VirtualizedContainerService.HintSize="530,157" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8a8117da-72da-4eed-8c47-d05450255391" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020203#" CvType="Icon" DesignTimeRectangle="530, 215, 31, 25" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG'" FullSelectorArgument="&lt;webctrl parentid='jsMdiMenuSearchButton' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='jsMdiMenuSearchButton' tag='IMG' type='' class='' aaname='' /&gt;" Guid="353f1dc2-f676-4c7d-a79a-ab2e0be7e034" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACMAAAAdCAYAAAAgqdWEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIISURBVFhHzZRNS0JBFIZvRQQtKoJo0aaF0LpFyyJoEdmH0F9oV/2H/k8QUYnZN4VmZQSKZdh3QYFFmyyozNO8xgUZXr03vbc88DDcOXNm3nvmzDEM/7FUDXTyvxiN3ooTeBX9kWvp3rmUjvUUP8wKtrETDO7fiGfzjB9aDLaRk/TuXklz8JQfrsM2cBpcYduqDUEs2A0gyDJDLLAYE7F7CaRfJP2elc9cLj/iG/NsvQ6ujIowYUGMmVRa3rI5YYZ5+FmcTsmiZgE6E/F7ec1+5Q/eenqV6cSDjB/e5Ud8wyAI61h8IXhlVAhgATpBdRUwHMz8piBcGfPrFO1DbLHOo6oN2KTKBPMjQzDUEPProDGWLQbFCsPVMD/mYVjH/Dro1GWLscoM5mF2M4NnXrYYuzWDdczPKFsMXon5rHHwlMoErgajKcTuawIVZQZY9Znnj6zKTEZ8hzy+kIpqxgSddlldBWoIxYoR35hfe8zkhWG0ElTRa7IDBGw+/QhaUYLYGpOK+oxdIAiZuX37oH5QugMf3Mhf4tlQWVlKcFiAW/SGVa0wESYsyA28ipZgUmr8iaIYYwfX4jbDivaVpNSqvy+FMbZ3JW7SFzqX1sCx1C3GLTF8kQtxg6HwuXStJaV+IWYbwxdKiROMKAa2T6Vn/UQ6A3FpmD/6NUbjXFSqBaNpNiLVQUS+AdJXcXl/ToWQAAAAAElFTkSuQmCC" InformativeScreenshot="69bb4b5c8b7f6a128ced795c6903e1bf.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='KRX_MDC' title='통계 - KRX | 정보데이터시스템' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArgument="AH|^ N7H" CvType="Text" DesignTimeRectangle="531, 177, 75, 17" ElementType="Text" FriendlyName="'서비스 소개'" FullSelectorArgument="&lt;webctrl parentid='jsGnbArea' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='jsGnbArea' tag='A' type='' class='' aaname='서비스 소개' check:innerText='서비스 소개' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAVCAYAAAAHIbMXAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGHSURBVFhH7ZVLzsIgEIC5nknjbdh6CJNuvYIL195Aj+DG5L+B+/kpMC2PoQ4PTU1YfEnTAQY+BhDPvxd0yujyKujyKujyKsiXdzmAEAJ244OOJ7iPe9VvD8cbHd8cdp3yEnw7bRLyriBVYyGvcYyQd5aqrTjA2Wln/i2yePJs3uEEdzLOh5XPriUkEpYl73aC3TTQt+Wt5c3iAcfBz88iJaxEHnk0PyjPtClYdAjOf1DjZWyEN8dieYSgtVgbeebITuPqvhVHV/fX0syY4aJTeOsolTdXgN21pSIWYnkUXHnhHWuPXYFAT8CErcL3AoM5WGEuDHl2EI1fTZrGlTeLj44X3lvMysH7khK+FrNE8yupPKwyOSbuvWbyUA6xQS5EvojE4nxW8qFcdwOz5QU7RFZLM3mfhZ0vVZV58vC4ugnxnyMmKY9i6bdJeSiOqsYceSZZ3AATzLIIeRy2J+/No5Qjj00TectjkEX0qCjsfPJgbOJ25f0AXV4jmsnrzHR5FXR5xbzgHx3UsL8+Yxw9AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="530,90" sap2010:WorkflowViewState.IdRef="Delay_2" />
+            <uix:NGetText DisplayName="Get Text '종목명'" sap:VirtualizedContainerService.HintSize="530,157" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="8a8117da-72da-4eed-8c47-d05450255391" TextString="[종목명]" Version="V3">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable BrowserURL="http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020203#" CvElementArea="758, 325, 350, 26" CvTextArea="768, 329, 95, 15" CvTextArgument="161890/750" CvType="InputBox" DesignTimeRectangle="758, 326, 350, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'161890/한국콜마'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl id='tboxisuCd_finder_stkisu0_1' tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl id='tboxisuCd_finder_stkisu0_1' type='text' tag='INPUT' class='' aaname='주식 종목 검색' /&gt;" Guid="c340378d-9fb7-4717-b960-fe84871de8d3" ImageBase64="" InformativeScreenshot="2e18c7e1e2b81a080d9de23e2a96390d.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='KRX_MDC' title='통계 - KRX | 정보데이터시스템' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CvTextArgument="¥e%" CvType="Text" DesignTimeRectangle="638, 323, 120, 29" ElementType="Text" FriendlyName="'종목명'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='' aaname='종목명' check:innerText='종목명' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAAAhCAYAAAAbDs+XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF+SURBVHhe7Zq9bsIwFIXzdgxIvEz2PAMSK7wBA1IHlrIxkKVSd1SpfQEq8QC3+bEhIRfbqWoXcU6kb3BiJ1K+nOs7JBNzfHydCQAUDgaFg0HhYFA4GBQOwtv7p2xfDxSOQi379M2Ew/Cy3TeeKRwECgeDwsGILPwo82kmWXaHfDdYUy5m+lxDvunML1cycc3ZFNV4JvOyswacf0i4+QgU2TWt8ELWt9eMXE349dxO8mo8WRzbMYUPSCu8EVDJnq6k1K5X/IXwfuIpvEsS4evcvPw61VZ6jSL+NyWdCQ8nqnAr2gppxhfJNo1Kmi0+YUz4aJKW9L7wAAKF9wUz4S4iCfd05wMKWXpK+S290k6CSdu0RUUp52OqCQgJhN9Lu7Z3+yuDmmxT2i+lvMHey9EjABJZuEmdkrS2oRuxvw4atCttZ6/cy7EGlacQrifcPoMJ7/JgJd2BN63cw0N4oqaNhEDhYFA4GBQOBoWDwZ8YweBvyqBQOBgUDgaFQ3GWH/6mj/nExx1ZAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetText.Target>
+            </uix:NGetText>
+            <If Condition="[종목명.Contains(in_codenumber.ToString)]" sap:VirtualizedContainerService.HintSize="530,628" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="300,366" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '종목명'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="258,52" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="8a8117da-72da-4eed-8c47-d05450255391" Text="[in_codenumber]" Version="V3">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020203#" CvElementArea="749, 370, 353, 26" CvTextArea="759, 375, 73, 14" CvTextArgument="008490/11S" CvType="InputBox" DesignTimeRectangle="750, 375, 350, 24" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'008490/서흥'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT037_FORM' tag='TABLE' /&gt;&lt;webctrl id='tboxisuCd_finder_stkisu0_1' tableRow='4' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT037_FORM' tag='TABLE' /&gt;&lt;webctrl id='tboxisuCd_finder_stkisu0_1' type='text' tag='INPUT' class='' aaname='주식 종목 검색' /&gt;" Guid="e18453f8-68b0-4127-9215-b5f60af070fe" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWIAAAAcCAYAAABbA7V/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOiSURBVHhe7Z1PaxNBGIfzlbwIQvFiERXBEimCevRbVLCmW2xF0H6I7Rfw0ItHTQVB8Kyt1mKrJ4WeLJRx3snsZv4l2SVtFjfPAz+W+bMzyeXJ29mUdPa/nyhCCCHNBRETQkjDKUX88dOB2nnzXr3eeUsIIeQCI64V50YiloHff04UAABcLOJacW4kYrE0AADMBnEuIgYAaBBEDADQMIgYAKBhELFDv9dV+aFtFOxmqrt9bBsOh7nqdjqqY5Pt2n4AmAuOjn+p9edb6ubSQ3X56i1zlbb01+VcRHy83S2F1FnOlactT1iB6AKZJYWn6ffidU1fcW+dPQtkTq9vGwNqiRgA5pZ3ux/UwrU76tKV61GkX8brML2ItahcERopl4Lrq8wVoRFkpnuFYEyvkC8nKksjwlxlwR6eHOU1VNpziIjc30v2j+eFIvY+AFIJPxQAoFX8OPqpFhaXjHRXVjfU572v6u/pqblKu5CxzKvK1CKOhSYitELzBDlgOF/PC6Qlgo3WMnPcuSlhOn1j9yyI9/aE7VXUcaUev05NosIGgPaxtvGqlHCKldVNMy7HFFWZWsT5cvjnvEhx0BdVrhqvz5Gm9McCLdb2xSlijSpiK9GJewpBlSuY/RPSTc3Vs/V7dKpgk/DDAQDayI2lB0a0e/sHtsdHKmMZlzPjqjQrYk9owTqeAMMKNhBhL9ftqiIevr4hen2zf3G13UJSxAAwr8iDORGtHEekkH4Zl3lVmVrE8QMuEd3wmCAlxfJoYuQZcSjesB3ijI/dUxMdIQz2Le/R93vVrbPexPPhMlTHAG1lUkUs/TOviOMK1JGiSC8QaCnuVKVZSNLIMCW4UPoWmV/IddyeGk/KGmmHRyLee0q9TgCYW4ZnxJu2x6c4I5Z5VZlaxEZ8TgXon9+6Va5GhOlKOqgco7PfkjEVsVlnVGWtcfc0YzWr1ZSIZc3UB0UgdABoH+ZbE/ara/LA7sv+N3McIdfGvjVhcMUUyUhLtJRVIEEj0WIsdW+BL2JTxZb3parkEXumpDqJ8J5ExV0QVtsA0E4mfY948fY9tfbspTo7O7N3jOd8RNxmalTEtSUPAP8t8h902eaWOTOWB3Nylbb0P8leGCnLtYqMETEAwDkj8n38dHBW3NOV8SQQMQDABSAylor47v1Htmc0iBgAoGEQMQBAwyBiAICGSYqYHw8FAJgNI388lJ/TJ4SQ2URcm/w5fUIIIc0EERNCSKM5Uf8AIZi0tpi8VL0AAAAASUVORK5CYII=" InformativeScreenshot="88f42f99a4eef454fafcf8e376128663.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='KRX_MDC' title='통계 - KRX | 정보데이터시스템' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArgument="eed" CvType="Text" DesignTimeRectangle="630, 372, 120, 29" ElementType="Text" FriendlyName="'종목명'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT037_FORM' tag='TABLE' /&gt;&lt;webctrl tableRow='4' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT037_FORM' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='' aaname='종목명' check:innerText='종목명' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAAAhCAYAAAAbDs+XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF/SURBVHhe7Zq9boMwFIV5O4ZIeRn2PEMk5jxBMkTqkKXZMpSlUvaoUvsCrZQHuMXGzo+xjalqWuUcpG8wGCPxca7vQCHmePs4EwAoHAwKB4PCwaBwMCgchNfju+yeXygcBSX784sJh+Fpd9CeKRwECgeDwsHIK3y7kKIoAsxl2bj37KXyzjXMVtLczN9UsTknWc7acbW/zCd/kXD9EfhkKzrhZX3qXdNyfcJvzjX1vF17IRs9pnAfEwo3Alqh1dZ3XfEbwrtnXKDwO/ILb1ZS6pevUn2VruiL/0FJZ8JHkU+4FW2FmLGVbNPoS3PHsDAmfDzTlXRH+DCJwl3BTHiUPMKj3Xmfsl7HS7mLU9pJOhM2bXnxlfP0aoJDfuGBtHv37qHKEEh2V9ptKTeYtcI9AiZZhdvU9ZJmG7oR+6vboF0xnb1nrfA9uDyA8EDCzTOY8Hv+V0mPMJRW7uFpPEzTRtKgcDAoHAwKB4PCweBPjGDwN2VQKBwMCgeDwqE4yzfRy5Alq1ougwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '종목명'" sap:VirtualizedContainerService.HintSize="258,52" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8a8117da-72da-4eed-8c47-d05450255391" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020203" DesignTimeRectangle="1078, 377, 13, 13" DesignTimeScaleFactor="1" ElementType="Icon" FriendlyName="'IMG btnisuCd_finder_stk…'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl id='btnisuCd_finder_stkisu0_1' tableRow='2' tag='IMG' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl id='btnisuCd_finder_stkisu0_1' type='' tag='IMG' class='' aaname='검색팝업' /&gt;" Guid="02df52f6-9842-42fc-984e-45788b5535ae" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEISURBVDhPtZJLCsIwEIa9khtBEDeKqAgWXAjq0lso+GjFVgTtocSFR/C98HUEC2X0H9NoY32iH5Qhk8nHZNIQ/YD/SLa7A3V6NmW0CkXiWY5YI/8In2Q0nlAskadwNHX3IY/9IKRks91TLKnxgVrTpOl8SUfH4Yi1J0KdipTo5lAKgqg1Ld7H1VSkJK2VuWi+WIuMH3SEfcxIRUowRBThCkEgj33UqbzdCfIvO7nOxBIZP95MUKciJfw64nkx3NlixVdAfPt1wKv/JJkrkt4dkOu64sQFnwTgzzQsm2eEISJijXzD6LMQ8VZ0J3kGDtZbl9m0zx15fCQBEKGTQqkqMl9IgviBhOgEqSDuIRiklrAAAAAASUVORK5CYII=" InformativeScreenshot="5b9784ec15aaecd7a3a1fc159e8b185d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='KRX_MDC' title='통계 - KRX | 정보데이터시스템' /&gt;" SearchSteps="FuzzySelector, Image" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CvTextArgument="eed" CvType="Text" DesignTimeRectangle="630, 368, 120, 29" ElementType="Text" FriendlyName="'종목명'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='' aaname='종목명' check:innerText='종목명' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAAAhCAYAAAAbDs+XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF/SURBVHhe7Zq9boMwFIV5O4ZIeRn2PEMk5jxBMkTqkKXZMpSlUvaoUvsCrZQHuMXGzo+xjalqWuUcpG8wGCPxca7vQCHmePs4EwAoHAwKB4PCwaBwMCgchNfju+yeXygcBSX784sJh+Fpd9CeKRwECgeDwsHIK3y7kKIoAsxl2bj37KXyzjXMVtLczN9UsTknWc7acbW/zCd/kXD9EfhkKzrhZX3qXdNyfcJvzjX1vF17IRs9pnAfEwo3Alqh1dZ3XfEbwrtnXKDwO/ILb1ZS6pevUn2VruiL/0FJZ8JHkU+4FW2FmLGVbNPoS3PHsDAmfDzTlXRH+DCJwl3BTHiUPMKj3Xmfsl7HS7mLU9pJOhM2bXnxlfP0aoJDfuGBtHv37qHKEEh2V9ptKTeYtcI9AiZZhdvU9ZJmG7oR+6vboF0xnb1nrfA9uDyA8EDCzTOY8Hv+V0mPMJRW7uFpPEzTRtKgcDAoHAwKB4PCweBPjGDwN2VQKBwMCgeDwqE4yzfRy5Alq1ougwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NClick>
+                  <Delay sap2010:Annotation.AnnotationText="수정 필요&#xA;" Duration="00:00:05" sap:VirtualizedContainerService.HintSize="258,94" sap2010:WorkflowViewState.IdRef="Delay_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Delay>
+                </Sequence>
+              </If.Else>
+            </If>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '조회기간'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,254" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="8a8117da-72da-4eed-8c47-d05450255391" Text="[in_date]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020203" CvElementArea="749, 398, 77, 27" CvTextArea="756, 406, 61, 12" CvTextArgument="20230710" CvType="InputBox" DesignTimeRectangle="758, 354, 75, 26" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'20230710'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl id='strtDd' tableRow='3' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl id='strtDd' type='text' tag='INPUT' class='' aaname='' /&gt;" Guid="264b38c6-56c0-4ae0-b997-209612bea3b0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAeCAYAAABt5kPUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH1SURBVGhD7ZlNasMwEIV9RkMvFHwV5wJdZNNlcboq9AKFNossW8gBVD/bskejJ9uVUuhiHsxmFI3efPoh4Or98+Ys8sLgFcQM7/Xtw52eXtzj6dkiEeADThE8DHx935wpLfABpwgeyJq2BU4GL1MGr0AGr0AGr0AGr0AGr0D58C6tq6vKVUM0rpvSXt3Bj/VxCEflWH28Tlmoc42fM4SuG4435yntrq59kPOmUOtej3Wfj72GvdSuvUz5DWXCg1lh4ty46qHts6MGk8I4YM2Q+t8uwMamFwhKQV39W4BMNwoPep362IW+B6k6A0gCmCj/5AWCAb8gjKqmYEjAlQqb1BKbRGqk54p5gUgeG0RuRnJDhe4DLzAgQXqxHERACwUnmDRJc1Cf3wuVbcD6hi66AzwNZj88alK8P8HYbnhrG/Kv4DGjscEBnr62qVMjhCbmNw9QCTwKP1mXeCM1sO4fX9v0Dkdvhm5oB7hRstn49LIm198rAo+8pd0h/ZRIZcNbNQk4syEYFr8lZpMK6oxrzqcEdfRTsFmbwNP+1JpryoOHBeb/Rfz/0XDlprHlWoxGw3l9+FOo60ZNyPnx6di+bgwehFPt67JxruyTZzJ4RTJ4BTJ4BTJ4BTJ4BaLw7NPjtpKfHu2j93aAD/3obfH7MHjZcXM/woF6rA7f6CcAAAAASUVORK5CYII=" InformativeScreenshot="ff84d6b79c7094c317c05cde39faa479.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='KRX_MDC' title='통계 - KRX | 정보데이터시스템' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CvTextArgument="28712" CvType="Text" DesignTimeRectangle="638, 352, 120, 29" ElementType="Text" FriendlyName="'조회기간'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='' aaname='조회기간' check:innerText='조회기간' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAAAhCAYAAAAbDs+XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGtSURBVHhe7ds/boMwFMdxbscQKZdhzxkiMXODDJE6ZGm2DGWp1D2q1F6glXIAF9s8wA+bf4Go5P0qfYcE6kZ88hxUtZEqvz6/b0hAABcWwIUFcGEBXEjvH1/q9PoGcClp7J9fTLiYXk4X4wxwIQFcWAAXFsCF9e/A83SroiiqSo507KyS4nGcXp3zw13VflOskZyr5/jatp06mONj119ny4Ifd54LTG3VPvd8T7A2iB+Q1m2D8w6JPh/gy5ZnKtYwm0zlzec73xwaZQCIWWMouF2vPg7wBSovcjVVY+oHcSe2G9ye29xl6LXZnhX+YeDN7bfrYk7/DOfHw+D0M9y1+t9Qz9Di4E1Ag1dt3Z7PcGdL5o+7Qdzp1vnB7Xm+dQB+Z/YChrZveiPUE1w0Eby9Pes4OL0efh4F8Hkrb9YcYE80gVQN4AGhG0AvYt9NGw/g8zYQ3MQn3cRByokNgobAQ7AAn54BsxM6JH2R+WTz4jQbCTIWXEaPm/C7GwsFcF9iwX27iG3K7wjW04rA0RwBXFgAFxbAhQVwYQFcWPgzZWHhHxGEBnBhAVxUN/UHwwp7LaM99doAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into '~'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="530,254" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="8a8117da-72da-4eed-8c47-d05450255391" Text="[in_date]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020203" CvElementArea="842, 399, 77, 26" CvTextArea="850, 406, 58, 12" CvTextArgument="20230731" CvType="InputBox" DesignTimeRectangle="851, 354, 75, 26" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'20230731'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl id='endDd' tableRow='3' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl id='endDd' type='text' tag='INPUT' class='' aaname='' /&gt;" Guid="72fd201d-ea43-4070-8314-d983a5f7d272" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE8AAAAeCAYAAABt5kPUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAH7SURBVGhD7ZnNasMwDMfzjIG+UMmrpC8waGHbsaQ7DXboYZfB1kPZaYM+gGr5I5YVuUljSC/6gyi1Y0X6SXYOrr5+LqA2zxRegfXw3j++Yff6Bk+7vVrGkM++O8L2xXHq4eHE3/8FVHkhn+1zB8fP37TzkKRqXMgpMFN4d0rhFUjhFUjhFUjhFUjhFWg+vFMLdVVBZa2Bzg8HdeswZ2ydztK5enP2o6gOmrDGGvebzjcHPwxnaFd0nbfw3kMjj1P5fKLPcc2Eh8GSxDC4VWtGnc6bOgkQYfWQzLMRmEs6G3Dilz+LIGtoT/4vE8aQFiYqicfIxmve05nfBeBxYSIBJibJksKqErhUt5J0vrxfwUd+LSsuF/oSug/9LQ8PO6QPhoIMksZQAmgi2xF06/GEpTFU0t1cvIOjHgCPg5kOT+wccpYmc5PhyQWxhbB+bxdrQXhSoNKWMfD4ts11DZFNOKyTtprUYZktGeU6T+rMBeHJFUbhgZwEwROaAM6JFmLYvVKyg3dLevSZdzNIhNN3mqt0/ywGnvl4DJT4ce/sOwb98KNgom/+tQ1aBh4m5c+laGkX2i3n52KgDmS6zljoAu53AIKul881KXmERf1K4FCLdZ5K4RVJ4RVI4RVI4RVI4RVIhKdXj+PKXj3qpfe4ZS+91e43hTfbLnAFPTF8vPUYuY8AAAAASUVORK5CYII=" InformativeScreenshot="f0e14cd7e10a7b6d280a4d34b2628f07.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='KRX_MDC' title='통계 - KRX | 정보데이터시스템' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="838, 354, 13, 24" ElementType="Text" FriendlyName="'~'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT023_FORM' tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='' aaname='~' check:innerText='~' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABEAAAAcCAYAAACH81QkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABuSURBVEhLY7j36PN/SvHAG3Lu4sP/2/ecoMwQkAHvP1Doks3bj/wHgVFDEHjUEEyMxZC9/4sZGP4zgHDxXojYhrr/xRsQmtAxpiFIGtYUQw3znvv/JEweCx7+AUs6HjUEE48agompUmVAKq8T/wF8Wsje7SFdWgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+              <uix:NTypeInto.VerifyOptions>
+                <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionTypeIntoOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionTypeIntoOptions.Retry>
+                  <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                </uix:VerifyExecutionTypeIntoOptions>
+              </uix:NTypeInto.VerifyOptions>
+            </uix:NTypeInto>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click '조회'" sap:VirtualizedContainerService.HintSize="530,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="8a8117da-72da-4eed-8c47-d05450255391" Version="V3">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020203#" CvTextArgument="20" CvType="Text" DesignTimeRectangle="1437, 344, 68, 28" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'조회'" FullSelectorArgument="&lt;webctrl id='jsSearchButton' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='jsSearchButton' tag='A' type='' class='btn_black btn_component_search' aaname='조회' check:innerText='조회' /&gt;" Guid="456f31db-c619-4237-bcbc-4605ffef2cb5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEgAAAAgCAYAAACxSj5wAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIESURBVGhD7Zg/TsMwFIejHAG4QSUuAAP3QYwMKEdAzEhIbBFCSBwAJMZ04BDpxsAFMvQAj/7iOLXjZycVsZt/kb6hidv698l+eUn087ulBTuLoBYOEvT2/kHXN7d0cXlFJ6dnFMcxRVE0eDBPzBfzxvyRg8vH0UnQ/cMjrVbn7J+PFeRBLi6vilPQ59d3aZ37g6mAfMjJ5QdWQU/Pr6PZQv8FOZGX88AKwmDuh6YOJ8kQhOU2l5XTBLmb280QNPWa0wbyqz40Qajq3Jfmhnp30wQN61aeUk7KUWSUVNeSdbE7kVOqje8PeDAEoXniBvdDQhky2Y5NynzHjm9BQDaTtSB0mNxAn6Qb4Sd/Uc+7ZRbrJIgg+NAEhS7OIqQIzF13EUKQLNa1IDyrcAP7R60trpDHq0EAPjRB/nsfJXAZVtlKRg2qrtXn9c8hBMFHMEHu7VSJU1bIIAWF22JVcdaEMNxlJLTKYy/kKFssZJHuJKikuZIEIQQZRdrPbb4K2PnYhTZWTvPIKQsgyLjN+20U+yXECjIaRTCWt4a+BbGPGmB5WBVYH1ZB6I56aMjiLDEELS/MWl6YgeWV6x5WEMDguawk5OTkAKsggOU29ZqEfM1tpeIUJEFVH0sL0BXkUe9WNjoJkqB5QocJ63hWGcsWxDwxX8wb85dNYBcOEjRHFkFOtvQHxFzclBLAoy0AAAAASUVORK5CYII=" InformativeScreenshot="56817d84ad02d79af45402fc835cf756.png" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='KRX_MDC' title='통계 - KRX | 정보데이터시스템' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="630, 343, 120, 29" ElementType="Text" FriendlyName="'조회구분'" FullSelectorArgument="&lt;webctrl parentname='MDCSTAT037_FORM' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='TH' /&gt;" FuzzySelectorArgument="&lt;webctrl parentname='MDCSTAT037_FORM' tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='' aaname='조회구분' check:innerText='조회구분' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHwAAAAhCAYAAAAbDs+XAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGiSURBVHhe7ZjLToNAFIZ5OxZN+jLseYYmbOUJrIaFiRvZaQwLExemiwab6AOosWtyLMNtGKYDrQxR/kPyLbieZL7zz3TqUHns3vcMACwcDBYOBgsHg4WDwcLBYOFgsHAwWDgYLBwMFg7GnxGeBEtyHKfGi6p7MXmHczdIm+eTkFzp2S5LWiXV+wXF931aS9cE5beaevPGjvDIVwTIdGWY0Qg3IWqzcB1Pz28TJrxK5SKkRL5ubI5c0JjCdTUK5i58+/pBV1E8lfBCmjZhvZwjvFsHPeH3jxt62aT2hcvJMklTE2hcww0cE4ue8JvbB/r8+rYnXB5gMZj11K1Zw9VpuHV+mvC1d6ihLhsMXV7fUZZlNoSbp++qEVqJGiw8pdWiaKJh+HTRk2yVuSbdonCFgWukSKY08E2i+xJeNoEXa+4dAWwrlmN9Sq85ZXDVpAvGEd6a6gGF2/nRJoQ1Ke0jl6gmW8UNQhY+AtvdpNuy32Ah4aBM+8fL2YwjvG9bhtIM/0A4MyYsHAwWDgYLB4OFg8HCwWDhYLBwMFg4GCwcij39ALGpYaDKVI2rAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[투자자별_테이블]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='투자자구분' ReferenceName='투자자구분' ReferenceIdx='0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='매도' ReferenceName='매도' ReferenceIdx='1'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='매수' ReferenceName='매수' ReferenceIdx='2'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='순매수' ReferenceName='순매수' ReferenceIdx='3'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='매도1' ReferenceName='매도1' ReferenceIdx='4'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='매수1' ReferenceName='매수1' ReferenceIdx='5'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='순매수1' ReferenceName='순매수1' ReferenceIdx='6'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='투자자구분' attr='fulltext' /&gt;&lt;column name='매도' attr='fulltext' /&gt;&lt;column name='매수' attr='fulltext' /&gt;&lt;column name='순매수' attr='fulltext' /&gt;&lt;column name='매도' attr='fulltext' /&gt;&lt;column name='매수' attr='fulltext' /&gt;&lt;column name='순매수' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="530,157" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="8a8117da-72da-4eed-8c47-d05450255391" Version="V3">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="631, 543, 883, 364" DesignTimeScaleFactor="1" FriendlyName="'투자자구분매도매수순매수매도매수순매수 금융투자'" FullSelectorArgument="&lt;webctrl class='CI-GRID-BODY-TABLE' parentid='jsMdiContent' tag='TABLE' /&gt;" Guid="a5110e0a-47a2-4b50-9ffe-4e138b858786" InformativeScreenshot="eee8250ff93a2558fed1695c836f2c83.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' htmlwindowname='KRX_MDC' title='통계 - KRX | 정보데이터시스템' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" WaitForReadyArgument="Complete" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <ui:BuildDataTable DataTable="[투자자_데이터]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="530,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;금융투자&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;보험&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;투신&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;사모&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;은행&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;기타금융&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;연기금_x0020_등&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;기관합계&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;기타법인&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;개인&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;외국인&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;기타외국인&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;전체&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;금융투자&gt;text&lt;/금융투자&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[투자자별_테이블]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="530,436" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="496,319" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="name" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[name]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[CurrentRow.Item("투자자구분").ToString]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Object">[투자자_데이터.Rows(0).Item(name)]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Object">[CurrentRow.item("순매수")]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+            <Assign sap:VirtualizedContainerService.HintSize="530,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="sd:DataTable">[out_투자자별테이블]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="sd:DataTable">[투자자_데이터]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1048" BrowserType="Chrome" IconBase64="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" InformativeScreenshot="b04fb0b1708e6a67816524d1896f45b5.jpg" Selector="&lt;html app='chrome.exe' htmlwindowname='KRX_MDC' title='통계 - KRX | 정보데이터시스템' /&gt;" Title="통계 - KRX | 정보데이터시스템" Url="http://data.krx.co.kr/contents/MDC/MDI/mdiLoader/index.cmd?menuId=MDC0201020203#" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>

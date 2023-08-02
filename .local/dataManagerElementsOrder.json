@@ -1,0 +1,91 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "주가조회.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtStockInfo&Sequence_1",
+        "searchdate&Sequence_10",
+        "개별종목_테이블&Sequence_10",
+        "투자자별테이블&Sequence_10",
+        "외국인지분율&Sequence_10",
+        "상장주식수&Sequence_1",
+        "codenumber&Sequence_1",
+        "in_code&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "외국인지분율조회.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "외국인보유량_테이블&Sequence_2"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_date",
+        "out_foreignholdings",
+        "in_codenumber"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "투자자별거래실적.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "투자자별_테이블&Sequence_2",
+        "투자자_데이터&Sequence_2",
+        "name&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "in_date",
+        "out_투자자별테이블",
+        "in_codenumber"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "개별종목종합정보조회.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [
+        "out_상장주식수",
+        "out_개별종목테이블",
+        "in_codenumber"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "TransposeColumnToRow.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "StockIndex&Sequence_1",
+        "dtStockInfo&Sequence_1",
+        "dtTargetTable&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
