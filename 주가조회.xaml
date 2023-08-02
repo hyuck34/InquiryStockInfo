@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="주가조회" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="993,8670" sap2010:WorkflowViewState.IdRef="주가조회_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="주가조회" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="993,8003" sap2010:WorkflowViewState.IdRef="주가조회_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -106,7 +106,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="주가조회" sap:VirtualizedContainerService.HintSize="959,8605" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="주가조회" sap:VirtualizedContainerService.HintSize="959,7938" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="200130" Name="in_code" />
       <Variable x:TypeArguments="x:String" Name="codenumber" />
@@ -120,32 +120,32 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:CopyFile ContinueOnError="{x:Null}" Destination="주가조회작업.xlsx" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="897,154" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="Template\주가조회작업_템플릿.xlsx" />
     <ui:CopyFile ContinueOnError="{x:Null}" Destination="주가정보.xlsx" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="897,154" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="Template\주가정보_템플릿.xlsx" />
-    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="897,8106" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
+    <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" FileConflictResolution="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" MacroSettings="{x:Null}" ProcessMode="{x:Null}" ShowExcelWindow="{x:Null}" DisplayName="Excel Process Scope" sap:VirtualizedContainerService.HintSize="897,7439" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1">
       <ueab:ExcelProcessScopeX.Body>
         <ActivityAction x:TypeArguments="ui:IExcelProcess">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="863,8019" sap2010:WorkflowViewState.IdRef="Sequence_20">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="863,7352" sap2010:WorkflowViewState.IdRef="Sequence_20">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="801,6594" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_3" ResizeWindow="None" TemplatePath="Template\주가조회작업_템플릿.xlsx" UseTemplate="True" WorkbookPath="주가조회작업.xlsx">
+            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="801,6784" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_3" ResizeWindow="None" TemplatePath="Template\주가조회작업_템플릿.xlsx" UseTemplate="True" WorkbookPath="주가조회작업.xlsx">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="767,6302" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                  <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="767,6492" sap2010:WorkflowViewState.IdRef="Sequence_7">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="705,6099" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_2" Range="[Excel.Sheet(&quot;Sheet1&quot;)]" SaveAfterEachRow="False">
+                    <ueab:ExcelForEachRowX DisplayName="For Each Excel Row" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="705,6289" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_2" Range="[Excel.Sheet(&quot;Sheet1&quot;)]" SaveAfterEachRow="False">
                       <ueab:ExcelForEachRowX.Body>
                         <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
                           <ActivityAction.Argument1>
@@ -154,7 +154,7 @@
                           <ActivityAction.Argument2>
                             <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                           </ActivityAction.Argument2>
-                          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="671,5917" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="671,6107" sap2010:WorkflowViewState.IdRef="Sequence_10">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:String" Name="외국인지분율" />
                               <Variable x:TypeArguments="sd:DataTable" Name="투자자별테이블" />
@@ -180,22 +180,33 @@
                                 <OutArgument x:TypeArguments="x:String">[searchdate]</OutArgument>
                               </Assign.To>
                               <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">[Today.ToString("yyyymmdd")]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[Today.ToString("yyyyMMdd")]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <Assign sap2010:Annotation.AnnotationText="테스트용 날짜&#xA;" sap:VirtualizedContainerService.HintSize="609,124" sap2010:WorkflowViewState.IdRef="Assign_7">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="x:String">[searchdate]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="x:String">20230710</InArgument>
-                              </Assign.Value>
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                            </Assign>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="609,314" sap2010:WorkflowViewState.IdRef="CommentOut_8">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,235" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap2010:Annotation.AnnotationText="테스트용 날짜&#xA;" sap:VirtualizedContainerService.HintSize="434,124" sap2010:WorkflowViewState.IdRef="Assign_7">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[searchdate]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">20230710</InArgument>
+                                    </Assign.Value>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </Assign>
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                            </ui:CommentOut>
                             <Sequence DisplayName="개별종목 조회" sap:VirtualizedContainerService.HintSize="609,2681" sap2010:WorkflowViewState.IdRef="Sequence_29">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -204,15 +215,9 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="개별종목종합정보조회.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="547,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="개별종목종합정보조회.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_codenumber">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="codenumber" />
-                                  </InArgument>
-                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_개별종목테이블">
-                                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="개별종목_테이블" />
-                                  </OutArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_date">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="searchdate" />
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_codenumber">[codenumber]</InArgument>
+                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_개별종목테이블">[개별종목_테이블]</OutArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_date">[searchdate]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                               <ueab:WriteCellX Cell="[CurrentRow.ByField(&quot;종가&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="547,159" sap2010:WorkflowViewState.IdRef="WriteCellX_13" Value="[개별종목_테이블.Rows(0).Item(&quot;종가&quot;)]" />
@@ -305,7 +310,7 @@
                               <ueab:WriteCellX Cell="[CurrentRow.ByField(&quot;등락률&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="547,159" sap2010:WorkflowViewState.IdRef="WriteCellX_9" Value="[등락률]" />
                               <ueab:WriteCellX Cell="[CurrentRow.ByField(&quot;거래량&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="547,159" sap2010:WorkflowViewState.IdRef="WriteCellX_10" Value="[개별종목_테이블.Rows(0).Item(&quot;거래량&quot;)]" />
                               <ueab:WriteCellX Cell="[CurrentRow.ByField(&quot;거래대금&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="547,159" sap2010:WorkflowViewState.IdRef="WriteCellX_11" Value="[개별종목_테이블.Rows(0).Item(&quot;거래대금&quot;)]" />
-                              <ueab:WriteCellX sap2010:Annotation.AnnotationText="시가총액 (억원) 단위로 변경 (백만원 -&gt; 억원)&#xD;&#xA;" Cell="[CurrentRow.ByField(&quot;시가총액&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="547,201" sap2010:WorkflowViewState.IdRef="WriteCellX_12" Value="[CLng(개별종목_테이블.Rows(0).Item(&quot;시가총액&quot;))/100]">
+                              <ueab:WriteCellX sap2010:Annotation.AnnotationText="시가총액 (억원) 단위로 변경 (백만원 -&gt; 억원)&#xA;" Cell="[CurrentRow.ByField(&quot;시가총액&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="547,201" sap2010:WorkflowViewState.IdRef="WriteCellX_12" Value="[CLng(개별종목_테이블.Rows(0).Item(&quot;시가총액&quot;))/100]">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -495,32 +500,27 @@
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="801,1121" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_5" ResizeWindow="None" WorkbookPath="주가정보.xlsx">
+            <ueab:ExcelApplicationCard Password="{x:Null}" ReadFormatting="{x:Null}" DisplayName="Use Excel File" sap:VirtualizedContainerService.HintSize="801,81" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_5" ResizeWindow="None" WorkbookPath="주가정보.xlsx">
               <ueab:ExcelApplicationCard.Body>
                 <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,852" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="506,1428" sap2010:WorkflowViewState.IdRef="Sequence_21">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="sd:DataTable" Name="공매도테이블" />
+                      <Variable x:TypeArguments="x:String" Name="textTitle" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="공매도정보조회.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="공매도정보조회.xaml">
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="공매도정보조회.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="444,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="공매도정보조회.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_codenumber">
-                          <Literal x:TypeArguments="x:String">200130</Literal>
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String" x:Key="in_date">
-                          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="searchdate" />
-                        </InArgument>
-                        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_공매도테이블">
-                          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="공매도테이블" />
-                        </OutArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_codenumber">200130</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="in_date">[searchdate]</InArgument>
+                        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_공매도테이블">[공매도테이블]</OutArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -529,19 +529,33 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:InvokeWorkflowFile>
-                    <ueab:WriteCellX Cell="[Excel.Sheet(&quot;오늘날짜&quot;).Cell(&quot;B26&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_24" Value="[공매도테이블.Rows(0).Item(&quot;전체&quot;)]" />
-                    <ueab:WriteCellX sap2010:Annotation.AnnotationText="백분율 표시" Cell="[Excel.Sheet(&quot;오늘날짜&quot;).Cell(&quot;C26&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,190" sap2010:WorkflowViewState.IdRef="WriteCellX_25" Value="[CDbl(공매도테이블.Rows(0).Item(&quot;비중&quot;))/100]">
+                    <ueab:WriteCellX Cell="[Excel.Sheet(&quot;오늘날짜&quot;).Cell(&quot;B26&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="444,159" sap2010:WorkflowViewState.IdRef="WriteCellX_24" Value="[공매도테이블.Rows(0).Item(&quot;전체&quot;)]" />
+                    <ueab:WriteCellX sap2010:Annotation.AnnotationText="백분율 표시" Cell="[Excel.Sheet(&quot;오늘날짜&quot;).Cell(&quot;C26&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="444,190" sap2010:WorkflowViewState.IdRef="WriteCellX_25" Value="[CDbl(공매도테이블.Rows(0).Item(&quot;비중&quot;))/100]">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ueab:WriteCellX>
-                    <ueab:WriteCellX Cell="[Excel.Sheet(&quot;오늘날짜&quot;).Cell(&quot;D26&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="434,159" sap2010:WorkflowViewState.IdRef="WriteCellX_26" Value="[공매도테이블.Rows(0).Item(&quot;전체1&quot;)]" />
+                    <ueab:WriteCellX Cell="[Excel.Sheet(&quot;오늘날짜&quot;).Cell(&quot;D26&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="444,159" sap2010:WorkflowViewState.IdRef="WriteCellX_26" Value="[공매도테이블.Rows(0).Item(&quot;전체1&quot;)]" />
+                    <ueab:ReadCellValueX Cell="[Excel.Sheet(&quot;오늘날짜&quot;).Cell(&quot;B24&quot;)]" DisplayName="Read Cell Value" GetFormattedText="True" sap:VirtualizedContainerService.HintSize="444,159" sap2010:WorkflowViewState.IdRef="ReadCellValueX_1">
+                      <ueab:ReadCellValueX.SaveTo>
+                        <OutArgument x:TypeArguments="x:String">[textTitle]</OutArgument>
+                      </ueab:ReadCellValueX.SaveTo>
+                    </ueab:ReadCellValueX>
+                    <ueab:WriteCellX Cell="[Excel.Sheet(&quot;오늘날짜&quot;).Cell(&quot;B24&quot;)]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="444,159" sap2010:WorkflowViewState.IdRef="WriteCellX_27" Value="[textTitle.Replace(&quot;오늘날짜&quot;, Today.ToString(&quot;MM월 dd일&quot;))]" />
+                    <ueab:RenameSheetX DisplayName="Rename Sheet" From="[Excel.Sheet(&quot;오늘날짜&quot;)]" sap:VirtualizedContainerService.HintSize="444,138" sap2010:WorkflowViewState.IdRef="RenameSheetX_1" To="[Today.ToString(&quot;MMdd&quot;)]" />
                   </Sequence>
                 </ActivityAction>
               </ueab:ExcelApplicationCard.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
             </ueab:ExcelApplicationCard>
+            <ui:RenameFileX DisplayName="Rename File" FilePath="주가정보.xlsx" sap:VirtualizedContainerService.HintSize="801,143" sap2010:WorkflowViewState.IdRef="RenameFileX_1" KeepExtension="True" NewName="[String.Format(&quot;주가정보_{0}.xlsx&quot;, Today.ToString(&quot;MMdd&quot;))]" />
           </Sequence>
         </ActivityAction>
       </ueab:ExcelProcessScopeX.Body>
